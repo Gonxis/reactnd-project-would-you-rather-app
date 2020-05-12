@@ -5,16 +5,34 @@ import Question from './Question'
 class Dashboard extends Component {
     render() {
         return (
-            <div>
-                <h3 className="center">Dashboard</h3>
-                <ul className="dashboard-list">
-                    {this.props.questionsIds.map(id => (
-                        <li key={id}>
-                            {/* <div>QUESTION ID: {id}</div> */}
-                            <Question id={id} />
-                        </li>
-                    ))}
+            <div className="content">
+
+                <ul className="nav nav-pills" role="tablist">
+                    <li className="nav-item">
+                        <a className="nav-link active" data-toggle="pill" href="#unanswered">Unanswered questions</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" data-toggle="pill" href="#answered">Answered questions</a>
+                    </li>
                 </ul>
+
+
+                <div className="tab-content">
+                    <div id="unanswered" className="container tab-pane active">
+                    <ul className="dashboard-list">
+                        {this.props.questionsIds.map(id => (
+                            <li key={id}>
+                                <Question id={id} />
+                            </li>
+                        ))}
+                    </ul>
+                    </div>
+                </div>
+                <div id="answered" className="container tab-pane fade">
+                    <div>
+                        Answered Questions
+                    </div>
+                </div>
             </div>
         )
     }
