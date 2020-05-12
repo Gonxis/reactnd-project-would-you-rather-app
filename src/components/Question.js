@@ -5,6 +5,7 @@ import { formatQuestion, /* formatDate */ } from '../utils/helpers'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
+import Poll from './Poll'
 
 class Question extends Component {
 
@@ -16,10 +17,8 @@ class Question extends Component {
         }
 
         const {
-            name, avatar, options, /* timestamp, text, hasVotes, votes, yourVote */
+            id, name, avatar, options, yourVote /* timestamp, text, hasVotes, votes */
         } = question
-
-        console.log("This props from Question: ", this.props)
         
         return (
             <div className="container">
@@ -45,6 +44,10 @@ class Question extends Component {
                         </Card.Text>
                     </Card.Body>
                 </Card>
+                <Poll 
+                    yourVote={yourVote}
+                    id={id}
+                />
             </div>
         )
     }
