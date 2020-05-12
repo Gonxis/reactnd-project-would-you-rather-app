@@ -158,3 +158,78 @@ li {
 
 
 /* End Unanswered Questions */
+
+
+/* Answered Questions */
+
+.center-div-answered-question {
+    float: left;
+    width: 10px;
+    border-right: 0.5px solid grey;
+    padding-bottom: 350px;
+    margin-bottom: -10px;
+    opacity: 27%;
+}
+
+.content-answered-question {
+    position: relative;
+    margin-left: 120px;
+    text-align: justify;
+}
+
+.content-answered-question p {
+    text-align: center;
+    font-weight: bold;
+}
+
+.options-answered-question {
+    background-color: rgba(225, 225, 225, 0.215);
+    height: 130px;
+    margin: 20px auto;
+    border-radius: 2%;
+    padding: 15px;
+    border: 2px solid #e4e6e8;
+}
+
+.your-choice-option {
+    background-color: rgba(19, 133, 254, 0.3);
+    border: 2px solid rgba(0, 123, 254, 1);
+}
+
+.your-choice-label {
+    position: relative;
+    background-color: #1c79db;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 12px;
+    text-align: center;
+    padding-top: 7px;
+    margin-top: -65px;
+    margin-left: 285px;
+    font-size: x-small;
+}
+
+.progress-bar-answered-question-div {
+    height: 30px;
+    position: absolute;
+    width: 300px;
+    text-align: -webkit-center;
+}
+
+.progress {
+    background-color: #e4e6e8;
+}
+
+.progress-bar-answered-question {
+    height: 30px;
+    width: 75%;
+}
+
+.avatar-answered-question {
+    margin-top: 125px;
+}
+
+
+/* End Answered Questions */
