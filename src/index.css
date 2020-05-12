@@ -1,3 +1,5 @@
+/* Question */
+
 .question {
     width: 100%;
     max-width: 400px;
@@ -52,7 +54,10 @@ li {
 }
 
 
-/*Tabs*/
+/* End Question */
+
+
+/* Tabs */
 
 .content {
     width: 450px;
@@ -105,4 +110,4 @@ li {
 }
 
 
-/*End Tabs*/
+/* End Tabs */
