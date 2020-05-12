@@ -21,7 +21,7 @@ class UnansweredPoll extends Component {
                             src={avatar}
                             alt={`Avatar of ${name}`}
                             roundedCircle
-                            className="avatar-question"
+                            className="avatar-unanswered-question avatar-question"
                         />
 
                         <div className="center-div-unanswered-question" />
@@ -29,17 +29,19 @@ class UnansweredPoll extends Component {
                         <div className="unanswered-poll-container">
                             <div className="content-unanswered-question">
                                 <h3>Would You Rather...</h3>
-                                <Form>
-                                    {options.values.map((value) => (
-                                        <div key={`default-${value}`}>
+                                <Form className="unanswered-poll-form">
+                                    <div className="radio-buttons-unanswered-question">
+                                        {options.values.map((value) => (
                                             <Form.Check 
+                                                key={value}
                                                 type='radio'
-                                                id={`default-${value}`}
+                                                id={`${value}`}
                                                 label={`${value}`}
+                                                name="wouldYouRatherQuestion"
                                             />
-                                        </div>
-                                    ))}
-                                    <Button>Submit</Button>
+                                        ))}
+                                    </div>
+                                    <Button className="submit-button-unanswered-question">Submit</Button>
                                 </Form>
                             </div>
                         </div>
