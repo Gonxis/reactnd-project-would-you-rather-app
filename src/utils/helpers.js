@@ -18,6 +18,7 @@ export function formatQuestion(question, author, authedUser) {
         hasVotes: votes !== 0,
         yourVote: optionOne.votes.includes(authedUser) || optionTwo.votes.includes(authedUser),
         options: {
+            values: [optionOne.text, optionTwo.text],
             optionOneValue: optionOne.text,
             optionOneVotes: [...optionOne.votes],
             optionTwoValue: optionTwo.text,
