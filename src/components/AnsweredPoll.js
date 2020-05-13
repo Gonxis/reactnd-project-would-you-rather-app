@@ -63,9 +63,8 @@ class AnsweredPoll extends Component {
                                     />
                                     <p>{options.optionOneVotes.length} out of {votes} votes</p>
                                 </div>
-                                {optionOneChoice ? 
-                                    <div className="your-choice-label">Your choice</div> :
-                                    ''
+                                {optionOneChoice && 
+                                    <div className="your-choice-label">Your choice</div>
                                 }
                             </div>
                             <div className={youChosedOptionTwo}>
@@ -80,9 +79,8 @@ class AnsweredPoll extends Component {
                                     />
                                     <p>{options.optionTwoVotes.length} out of {votes} votes</p>
                                 </div>
-                                {optionTwoChoice ? 
-                                    <div className="your-choice-label">Your choice</div> :
-                                    ''
+                                {optionTwoChoice && 
+                                    <div className="your-choice-label">Your choice</div> 
                                 }
                             </div>
                         </div>
