@@ -1,26 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import LeaderBoardCard from "./LeaderBoardCard";
+import LeaderboardCard from './LeaderboardCard'
 
-class LeaderBoard extends Component {
+class Leaderboard extends Component {
 
 	render() {
-		const badges = [
-			"yellow",
-			"grey",
-			"orange"
-		];
-
 		const { leaderboardData } = this.props;
 
 		return (
 			<div className="container-leaderboard">
 				{leaderboardData.map((data, id) => (
-					<LeaderBoardCard
+					<LeaderboardCard
 						key={data.id}
 						data={data}
-						color={badges[id]}
 					/>
 				))}
 			</div>
@@ -45,4 +38,4 @@ const mapStateToProps = ({ users }) => {
 	};
 };
 
-export default connect(mapStateToProps)(LeaderBoard);
+export default connect(mapStateToProps)(Leaderboard);

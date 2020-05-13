@@ -28,7 +28,7 @@ class Login extends Component {
 
 		return (
 			<div className="container-sign-in">
-				<div className="card">
+				<div className="card text-center">
 					<div className="card-header">
 						<h4>Welcome to the Would You Rather App!</h4>
 						<p>Please sign in to continue</p>

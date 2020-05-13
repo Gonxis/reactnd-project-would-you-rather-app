@@ -3,7 +3,7 @@ import React from "react";
 import Card from "react-bootstrap/Card"
 import Image from 'react-bootstrap/Image'
 
-const LeaderBoardCard = ({ data }) => {
+const LeaderboardCard = ({ data }) => {
     const { avatarURL, name, answerCount, questionCount, totalScore } = data
 	return (
         <Card className="leaderboard-card-container">
@@ -43,4 +43,4 @@ const LeaderBoardCard = ({ data }) => {
 	);
 };
 
-export default LeaderBoardCard;
+export default LeaderboardCard;
