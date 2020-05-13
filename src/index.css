@@ -287,3 +287,28 @@ li {
 
 
 /* End New Question */
+
+
+/* Nav */
+
+.initial-nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-decoration: none;
+}
+
+.initial-nav li:first-child {
+    padding-left: 10px;
+}
+
+.initial-nav li {
+    padding-right: 20px;
+}
+
+.avatar-nav {
+    width: 25px;
+}
+
+
+/* End Nav */
