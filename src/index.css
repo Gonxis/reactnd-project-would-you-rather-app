@@ -312,3 +312,79 @@ li {
 
 
 /* End Nav */
+
+
+/* LeaderBoard */
+
+.container-leaderboard {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.leaderboard-card-container {
+    width: 500px;
+    margin: 10px auto;
+    height: 160px;
+    border: 2px solid rgba(128, 128, 128, 0.2);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.first-span-leaderboard-card {
+    padding-left: 60px;
+}
+
+.second-span-leaderboard-card {
+    padding-left: 75px;
+}
+
+.avatar-leaderboard-card {
+    margin-top: 10px;
+}
+
+.center-div-second-leaderboard-card {
+    width: 10px;
+    border-right: 0.5px solid grey;
+    padding-bottom: 120px;
+    margin-bottom: -10px;
+    opacity: 27%;
+    margin-left: 230px;
+    float: left;
+}
+
+.center-div-leaderboard-card {
+    padding-bottom: 120px;
+}
+
+.content-unanswered-question h3 {
+    font-weight: bold;
+}
+
+.leaderboard-card-container p:first-of-type {
+    margin-top: 25px;
+    margin-bottom: -15px;
+}
+
+.leaderboard-card-container p:last-of-type {
+    margin-top: -15px;
+}
+
+.score-leaderboard-card {
+    width: 100px;
+    font-weight: bold;
+    float: right;
+    margin-top: -12px;
+}
+
+.total-score {
+    background-color: #1c79db;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+    text-align: center;
+}
+
+
+/* End LeaderBoard*/
