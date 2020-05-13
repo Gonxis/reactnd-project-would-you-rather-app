@@ -9,6 +9,7 @@ import Nav from './Nav'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
 import Poll from './Poll'
+import Login from './Login'
 
 class App extends Component {
   componentDidMount() {
@@ -25,7 +26,7 @@ class App extends Component {
             {this.props.loading ?
               null :
               <div>
-                <Route path='/' exact component={Dashboard} />
+                <Route path='/' exact component={Login} />
                 <Route path='/new' component={NewQuestion} />
                 <Route path='/leaderboard' component={LeaderBoard} />
                 <Route path='/question/:id' component={Poll} />
