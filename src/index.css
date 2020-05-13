@@ -79,7 +79,7 @@ li {
     font-weight: bold;
     padding-top: 13px;
     text-align: center;
-    background: #343436;
+    background: rgba(0, 100, 255, 1);
     color: #fff;
     border-radius: 30px;
     height: 100px;
