@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
+import { Redirect } from 'react-router-dom'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -9,26 +10,27 @@ class NewQuestion extends Component {
 
     state = {
         textOptionOne: '',
-        textOptionTwo: ''
-      }
+        textOptionTwo: '',
+        toHome: false
+    }
 
-      handleChangeOptionOne = (event) => {
+    handleChangeOptionOne = (event) => {
         const textOptionOne = event.target.value
     
         this.setState(() => ({
-          textOptionOne
+            textOptionOne
         }))
-      }
+    }
 
-      handleChangeOptionTwo = (event) => {
+    handleChangeOptionTwo = (event) => {
         const textOptionTwo = event.target.value
     
         this.setState(() => ({
-          textOptionTwo
+            textOptionTwo
         }))
-      }
+    }
 
-      handleSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault()
     
         const { textOptionOne, textOptionTwo } = this.state
@@ -37,15 +39,18 @@ class NewQuestion extends Component {
         dispatch(handleAddQuestion(textOptionOne, textOptionTwo, id))
     
         this.setState(() => ({
-          textOptionOne: '',
-          textOptionTwo: ''
+            textOptionOne: '',
+            textOptionTwo: '',
+            toHome: id ? false : true,
         }))
-      }
+    }
 
-      render() {
-        const { textOptionOne, textOptionTwo } = this.state
+    render() {
+        const { textOptionOne, textOptionTwo, toHome } = this.state
     
-        {/* todo: Redirect to / if submitted */}
+        if (toHome) {
+            return <Redirect to='/' />
+        }
         
         return (
             <div className="container-new-question">

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { formatQuestion, /* formatDate */ } from '../utils/helpers'
+import { formatQuestion } from '../utils/helpers'
 
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
 import Poll from './Poll'
+
+import { Link, withRouter } from 'react-router-dom'
 
 class Question extends Component {
 
@@ -37,7 +39,13 @@ class Question extends Component {
                         <div className="content-question">
                             <h5>Would you rather</h5>
                             <p>{options.optionOneValue}</p>
-                            <Button variant="primary" className="view-poll-button">View Poll</Button>
+                            <Link to={`/question/${id}`} >
+                                <Button 
+                                    variant="primary" 
+                                    className="view-poll-button"
+                                    
+                                >View Poll</Button>
+                            </Link>
                         </div>
                         <Card.Text>
 
@@ -64,4 +72,4 @@ function mapStateToProps({ authedUser, questions, users }, { id }) {
     }
 }
 
-export default connect(mapStateToProps)(Question)
+export default withRouter(connect(mapStateToProps)(Question))
