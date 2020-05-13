@@ -233,3 +233,57 @@ li {
 
 
 /* End Answered Questions */
+
+
+/* New Question */
+
+.container-new-question {
+    width: 500px;
+    margin: auto;
+}
+
+.header-new-question {
+    border: 2px solid rgba(128, 128, 128, 0.2);
+}
+
+.body-new-question {
+    border: 2px solid rgba(128, 128, 128, 0.2);
+    margin-top: -2px;
+    padding: 10px;
+    text-align: left;
+}
+
+.body-new-question>p {
+    font-size: small;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(183, 183, 183, 0.263);
+}
+
+.separator::before {
+    margin-right: 0.5em;
+}
+
+.separator::after {
+    margin-left: 0.5em;
+}
+
+.submit-button-create-question {
+    margin-top: 10px;
+    width: -webkit-fill-available;
+}
+
+
+/* End New Question */

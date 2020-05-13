@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
+import NewQuestion from './NewQuestion'
 
 class Dashboard extends Component {
     render() {
@@ -8,6 +9,10 @@ class Dashboard extends Component {
         const { answeredQuestions, unansweredQuestions } = this.props
 
         return (
+            <div>
+                {/*Only for test purpose*/}
+                <NewQuestion />
+                {/*Only for test purpose*/}
             <div className="content">
 
                 <ul className="nav nav-pills" role="tablist">
@@ -62,6 +67,7 @@ class Dashboard extends Component {
                         </ul>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }
