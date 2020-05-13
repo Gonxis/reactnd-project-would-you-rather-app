@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { handleAddQuestion } from '../actions/questions'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -30,10 +32,9 @@ class NewQuestion extends Component {
         event.preventDefault()
     
         const { textOptionOne, textOptionTwo } = this.state
-    
-        // todo: Add Question to Store
-    
-        console.log('New Question: ', textOptionOne, textOptionTwo)
+        const { dispatch, id } = this.props
+
+        dispatch(handleAddQuestion(textOptionOne, textOptionTwo, id))
     
         this.setState(() => ({
           textOptionOne: '',
@@ -62,7 +63,7 @@ class NewQuestion extends Component {
                             onChange={this.handleChangeOptionOne}
                             required 
                         />
-                        <div class="separator">OR</div>
+                        <div className="separator">OR</div>
                         <Form.Control 
                             type="text" 
                             placeholder="Enter Option Two Text Here" 
@@ -82,4 +83,4 @@ class NewQuestion extends Component {
     }
 }
 
-export default NewQuestion
+export default connect()(NewQuestion)
