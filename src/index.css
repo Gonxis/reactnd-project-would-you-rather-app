@@ -388,3 +388,19 @@ li {
 
 
 /* End LeaderBoard*/
+
+
+/* Sign In */
+
+.container-sign-in {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.img-login {
+    width: 150px;
+}
+
+
+/* End Sign In */
