@@ -31,18 +31,20 @@ class Question extends Component {
                             src={avatar}
                             alt={`Avatar of ${name}`}
                             roundedCircle
-                            className="avatar-question"
+                            className="avatar-question margin-left-25"
                         />
 
-                        <div className="center-div" />
+                        <div className="center-div wdth-40" />
 
                         <div className="content-question">
-                            <h5>Would you rather</h5>
-                            <p>{options.optionOneValue}</p>
+                            <div className="margin-left-180">
+                                <h5>Would you rather</h5>
+                                <p>{options.optionOneValue}</p>
+                            </div>
                             <Link to={`/question/${id}`} >
                                 <Button 
                                     variant="primary" 
-                                    className="view-poll-button"
+                                    className="view-poll-button btn btn-block btn-primary"
                                     
                                 >View Poll</Button>
                             </Link>
