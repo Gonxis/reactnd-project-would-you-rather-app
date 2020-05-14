@@ -12,10 +12,10 @@ class Poll extends Component {
                 {
                 yourVote ?
                 <AnsweredPoll
-                id={id}
+                    id={id}
                 /> :
                 <UnansweredPoll
-                id={id}
+                    id={id}
                 />
                 }
             </div>

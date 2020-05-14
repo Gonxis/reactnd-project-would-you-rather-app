@@ -4,10 +4,9 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 
-export const ADD_ANSWER_TO_QUESTION = 'ADD_ANSWER_TO_QUESTION'
+export const ADD_ANSWER_TO_QUESTION = "ADD_ANSWER_TO_QUESTION"
 
 export const ADD_QUESTION = 'ADD_QUESTION'
-export const ADD_QUESTION_TO_USER = "ADD_QUESTION_TO_USER"
 
 function addAnswerToQuestion({ authedUser, id, yourVote }) {
     return {

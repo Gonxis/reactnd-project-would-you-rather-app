@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Nav from "./Nav";
 import Login from "./Login";
-import Leaderboard from "./Leaderboard";
+import Leaderboard from "./Leaderboard"
 import Poll from "./Poll";
 import NewQuestion from "./NewQuestion"
 
@@ -21,8 +21,8 @@ const Navigation = (props) => {
                     <Route path="/leaderboard" component={Leaderboard} />
                     <Route path="/add" component={NewQuestion} />
                     <Route
-                        path="/questions/:question_id"
-                        component={Poll}
+                        path='/question/:id'
+                        render={(props) => <Poll {...props} id="xj352vofupe1dqz9emx13r" yourVote={true} />}
                     />
                 </Switch>
             </Fragment>
