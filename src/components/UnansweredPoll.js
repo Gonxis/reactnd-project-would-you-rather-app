@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
+import { handleSaveQuestionAnswer } from '../actions/questions'
 import { formatQuestion } from '../utils/helpers'
 
 import Card from 'react-bootstrap/Card'
@@ -8,9 +9,33 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 class UnansweredPoll extends Component {
+
+    state = {
+		option: ""
+	}
+
+	handleChoice = (event) => {
+		this.setState({ option: event.target.value });
+	}
+
+	saveAnswer = (event) => {
+		const { dispatch, question } = this.props
+		const { option } = this.state
+
+        event.preventDefault()
+		dispatch(handleSaveQuestionAnswer(question, option))
+	}
+
     render () {
+        console.log("Uanswered Props: ", this.props)
         const { question } = this.props
-        const { name, avatar, options, } = question
+        const { name, avatar, options } = question
+        const { option } = this.state
+
+        const disabled = 
+            option === "" ? 
+            true :
+            false
 
         return (
             <div className="container">
@@ -35,13 +60,19 @@ class UnansweredPoll extends Component {
                                             <Form.Check 
                                                 key={value}
                                                 type='radio'
-                                                id={`${value}`}
-                                                label={`${value}`}
+                                                id={value}
+                                                label={value}
                                                 name="wouldYouRatherQuestion"
+                                                value={value}
+                                                onChange={this.handleChoice}
                                             />
                                         ))}
                                     </div>
-                                    <Button className="submit-button-unanswered-question">Submit</Button>
+                                    <Button 
+                                        className="submit-button-unanswered-question"
+                                        type="submit"
+						                disabled={disabled}
+                                    >Submit</Button>
                                 </Form>
                             </div>
                         </div>

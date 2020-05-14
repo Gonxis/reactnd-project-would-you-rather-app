@@ -5,7 +5,6 @@ import { formatQuestion } from '../utils/helpers'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
-import Poll from './Poll'
 
 import { Link, withRouter } from 'react-router-dom'
 
@@ -19,7 +18,7 @@ class Question extends Component {
         }
 
         const {
-            id, name, avatar, options, yourVote /* timestamp, text, hasVotes, votes */
+            id, name, avatar, options
         } = question
         
         return (
@@ -54,10 +53,6 @@ class Question extends Component {
                         </Card.Text>
                     </Card.Body>
                 </Card>
-                <Poll 
-                    yourVote={yourVote}
-                    id={id}
-                />
             </div>
         )
     }
