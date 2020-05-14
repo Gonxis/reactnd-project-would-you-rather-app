@@ -23,7 +23,6 @@ class Nav extends React.Component {
         }
 
         const { name, avatarURL } = user
-        console.log("We are in Nav: ", user)
 
   return (
     <nav className='initial-nav'>

@@ -1,15 +1,19 @@
 import { saveQuestionAnswer, saveQuestion } from '../utils/api'
+import { addAnswerToUser, addQuestionToUser } from './users'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
-export const ADD_ANSWER_TO_QUESTION = 'ADD_ANSWER_TO_QUESTION'
-export const ADD_QUESTION = 'ADD_QUESTION'
 
-function addAnswerToQuestion({ id, authedUser, yourVote }) {
+export const ADD_ANSWER_TO_QUESTION = 'ADD_ANSWER_TO_QUESTION'
+
+export const ADD_QUESTION = 'ADD_QUESTION'
+export const ADD_QUESTION_TO_USER = "ADD_QUESTION_TO_USER"
+
+function addAnswerToQuestion({ authedUser, id, yourVote }) {
     return {
         type: ADD_ANSWER_TO_QUESTION,
-        id,
         authedUser,
+        id,
         yourVote
     }
 }
@@ -28,31 +32,41 @@ export function receiveQuestions(questions) {
     }
 }
 
-export function handleAddAnswerToQuestion(info) {
-    return dispatch => {
-        dispatch(addAnswerToQuestion(info))
+export function handleSaveQuestionAnswer(question, answer) {
+    return (dispatch, getState) => {
+        const { authedUser } = getState();
+        const id = question.id;
 
-        return saveQuestionAnswer(info)
-            .catch((err) => {
-                console.warn("Error in handleAddAnswerToQuestion: ", err)
-                    //dispatch()
-                alert("There was an error submitting your answer. Please, try again...")
+        dispatch(showLoading());
+
+        return saveQuestionAnswer({
+                authedUser,
+                id,
+                answer
             })
-    }
+            .then(() => {
+                dispatch(addAnswerToUser(authedUser, id, answer));
+                dispatch(addAnswerToQuestion(authedUser, id, answer));
+            })
+            .then(() => dispatch(hideLoading()));
+    };
 }
 
-export function handleAddQuestion(textOne, textTwo) {
+export function handleSaveQuestion(textOne, textTwo) {
     return (dispatch, getState) => {
         const { authedUser } = getState()
 
         dispatch(showLoading())
 
         return saveQuestion({
+                author: authedUser,
                 optionOneText: textOne,
-                optionTwoText: textTwo,
-                author: authedUser
+                optionTwoText: textTwo
             })
-            .then((question) => dispatch(addQuestion(question)))
+            .then((question) => {
+                dispatch(addQuestion(question))
+                dispatch(addQuestionToUser(question))
+            })
             .then(() => dispatch(hideLoading()))
     }
 }
