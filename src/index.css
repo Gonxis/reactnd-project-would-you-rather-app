@@ -404,3 +404,19 @@ li {
 
 
 /* End Sign In */
+
+.wdth-40 {
+    width: 40px;
+}
+
+.margin-left-25 {
+    margin-left: 25px;
+}
+
+.margin-left-180 {
+    margin-left: 180px;
+}
+
+.content-question h5 {
+    font-weight: bold;
+}
