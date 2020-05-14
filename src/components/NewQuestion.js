@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleAddQuestion } from '../actions/questions'
+import { handleSaveQuestion } from '../actions/questions'
 import { Redirect } from 'react-router-dom'
 
 import Form from 'react-bootstrap/Form'
@@ -36,7 +36,7 @@ class NewQuestion extends Component {
         const { textOptionOne, textOptionTwo } = this.state
         const { dispatch, id } = this.props
 
-        dispatch(handleAddQuestion(textOptionOne, textOptionTwo, id))
+        dispatch(handleSaveQuestion(textOptionOne, textOptionTwo))
     
         this.setState(() => ({
             textOptionOne: '',

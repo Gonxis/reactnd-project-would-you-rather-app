@@ -14,8 +14,6 @@ class AnsweredPoll extends Component {
     }
 
     render () {
-
-        console.log("This props from Answered Question: ", this.props);
         const { question, authedUser } = this.props
         const { name, avatar, options, votes } = question
 
