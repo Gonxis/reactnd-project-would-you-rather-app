@@ -21,7 +21,7 @@ const Navigation = (props) => {
                     <Route path="/leaderboard" component={Leaderboard} />
                     <Route path="/add" component={NewQuestion} />
                     <Route
-                        path='/question/:id'
+                        path='/questions/:id'
                         render={(props) => <Poll {...props} id="xj352vofupe1dqz9emx13r" yourVote={true} />}
                     />
                 </Switch>
