@@ -18,7 +18,7 @@ class Question extends Component {
         }
 
         const {
-            id, name, avatar, options
+            id, name, avatar, options, yourVote
         } = question
         
         return (
@@ -40,7 +40,15 @@ class Question extends Component {
                                 <h5>Would you rather</h5>
                                 <p>{options.optionOneValue}</p>
                             </div>
-                            <Link to={`/questions/${id}`} >
+                            {/* <Link to={`/questions/${id}`} > */}
+                            <Link to={{
+                                pathname: `/questions/${id}`,
+                                state: {
+                                    id,
+                                    yourVote
+                                }
+                                
+                            }}>
                                 <Button 
                                     variant="primary" 
                                     className="view-poll-button btn btn-block btn-primary"

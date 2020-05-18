@@ -5,7 +5,7 @@ import UnansweredPoll from './UnansweredPoll'
 
 class Poll extends Component {
     render () {
-        const { id, yourVote } = this.props
+        const { id, yourVote } = this.props.location.state
 
         return (
             <div>

@@ -11,7 +11,7 @@ import Form from 'react-bootstrap/Form'
 class UnansweredPoll extends Component {
 
     state = {
-		option: ""
+        option: ""
 	}
 
 	handleChoice = (event) => {
@@ -27,7 +27,6 @@ class UnansweredPoll extends Component {
 	}
 
     render () {
-        console.log("Uanswered Props: ", this.props)
         const { question } = this.props
         const { name, avatar, options } = question
         const { option } = this.state
@@ -54,19 +53,29 @@ class UnansweredPoll extends Component {
                         <div className="unanswered-poll-container">
                             <div className="content-unanswered-question">
                                 <h3>Would You Rather...</h3>
-                                <Form className="unanswered-poll-form">
+                                <Form 
+                                    onSubmit={this.saveAnswer}
+                                    className="unanswered-poll-form"
+                                >
                                     <div className="radio-buttons-unanswered-question">
-                                        {options.values.map((value) => (
-                                            <Form.Check 
-                                                key={value}
+                                        <Form.Check 
+                                                key="optionOne"
                                                 type='radio'
-                                                id={value}
-                                                label={value}
+                                                id="optionOne"
+                                                label={options.values[0]}
                                                 name="wouldYouRatherQuestion"
-                                                value={value}
+                                                value="optionOne"
                                                 onChange={this.handleChoice}
                                             />
-                                        ))}
+                                        <Form.Check 
+                                                key="optionTwo"
+                                                type='radio'
+                                                id="optionTwo"
+                                                label={options.values[1]}
+                                                name="wouldYouRatherQuestion"
+                                                value="optionTwo"
+                                                onChange={this.handleChoice}
+                                            />
                                     </div>
                                     <Button 
                                         className="submit-button-unanswered-question"

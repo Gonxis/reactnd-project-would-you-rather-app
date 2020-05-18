@@ -22,7 +22,7 @@ const Navigation = (props) => {
                     <Route path="/add" component={NewQuestion} />
                     <Route
                         path='/questions/:id'
-                        render={(props) => <Poll {...props} id="xj352vofupe1dqz9emx13r" yourVote={true} />}
+                        render={(props) => <Poll {...props} />}
                     />
                 </Switch>
             </Fragment>
