@@ -17,12 +17,12 @@ class Nav extends React.Component {
     
     render() {
         const { user } = this.props;
+        let name, avatarURL
 
-        if (!user) {
-            return <p>User not logged in</p>  
+        if (user) {
+            name = user.name
+            avatarURL = user.avatarURL
         }
-
-        const { name, avatarURL } = user
 
   return (
     <nav className='initial-nav'>
@@ -42,17 +42,21 @@ class Nav extends React.Component {
                 Leader Board
             </NavLink>
             </li>
-            <li>
-                Hello, {name}
-            </li>
-            <li>
-                <Image 
-                    src={avatarURL}
-                    alt={`Avatar of ${name}`}
-                    roundedCircle
-                    className="avatar-nav"
-                />
-            </li>
+            { user && (
+            <div>
+                <li>
+                    Hello, {name}
+                </li>
+                <li>
+                    <Image 
+                        src={avatarURL}
+                        alt={`Avatar of ${name}`}
+                        roundedCircle
+                        className="avatar-nav"
+                    />
+                </li>
+            </div>
+            )}
             <li>
                 <Button onClick={this.handleLogout} >
                     Logout

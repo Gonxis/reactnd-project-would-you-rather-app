@@ -34,6 +34,11 @@ class UnansweredPoll extends Component {
 	}
 
     render () {
+
+        if (!this.props.question) {
+            return <Redirect to='/page404' />
+        }
+
         const { id, question } = this.props
         const { name, avatar, options, yourVote } = question
         const { option, toAnsweredQuestion } = this.state

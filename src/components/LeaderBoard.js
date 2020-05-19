@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import LeaderboardCard from './LeaderboardCard'
+import LeaderBoardCard from './LeaderBoardCard'
 
-class Leaderboard extends Component {
+class LeaderBoard extends Component {
 
 	render() {
-		const { leaderboardData } = this.props;
+		const { leaderBoardData } = this.props;
 
 		return (
 			<div className="container-leaderboard">
-				{leaderboardData.map((data, id) => (
-					<LeaderboardCard
+				{leaderBoardData.map((data, id) => (
+					<LeaderBoardCard
 						key={data.id}
 						data={data}
 					/>
@@ -22,7 +22,7 @@ class Leaderboard extends Component {
 }
 
 const mapStateToProps = ({ users }) => {
-	const leaderboardData = Object.values(users)
+	const leaderBoardData = Object.values(users)
 		.map((user) => ({
 			id: user.id,
 			name: user.name,
@@ -34,8 +34,8 @@ const mapStateToProps = ({ users }) => {
 		.sort((a, b) => b.totalScore - a.totalScore);
 
 	return {
-		leaderboardData
+		leaderBoardData
 	};
 };
 
-export default connect(mapStateToProps)(Leaderboard);
+export default connect(mapStateToProps)(LeaderBoard);

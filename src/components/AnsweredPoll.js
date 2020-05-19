@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { formatQuestion } from '../utils/helpers'
+import { Redirect } from 'react-router-dom'
 
 import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
@@ -14,6 +15,11 @@ class AnsweredPoll extends Component {
     }
 
     render () {
+
+        if (!this.props.question) {
+            return <Redirect to='/page404' />
+        }
+
         const { question, authedUser } = this.props
         const { name, avatar, options, votes } = question
 
