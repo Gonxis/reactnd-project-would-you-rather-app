@@ -40,7 +40,6 @@ class Question extends Component {
                                 <h5>Would you rather</h5>
                                 <p>{options.optionOneValue}</p>
                             </div>
-                            {/* <Link to={`/questions/${id}`} > */}
                             <Link to={{
                                 pathname: `/questions/${id}`,
                                 state: {

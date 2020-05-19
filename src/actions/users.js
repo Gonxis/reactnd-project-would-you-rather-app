@@ -9,11 +9,11 @@ export function receiveUsers(users) {
     }
 }
 
-export function addAnswerToUser(authedUser, id, answer) {
+export function addAnswerToUser({ authedUser, qid, answer }) {
     return {
         type: ADD_ANSWER_TO_USER,
         authedUser,
-        id,
+        qid,
         answer
     }
 }

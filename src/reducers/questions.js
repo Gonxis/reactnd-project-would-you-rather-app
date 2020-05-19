@@ -17,16 +17,16 @@ export default function questions(state = {}, action) {
                 }
             }
         case ADD_ANSWER_TO_QUESTION:
-            const { authedUser, id, answer } = action;
+            const { authedUser, qid, answer } = action;
 
             return {
                 ...state,
-                [id]: {
-                    ...state[id],
+                [qid]: {
+                    ...state[qid],
                     [answer]: {
-                        ...state[id][answer],
+                        ...state[qid][answer],
                         votes: [
-                            ...state[id][answer].votes,
+                            ...state[qid][answer].votes,
                             authedUser
                         ]
                     }
