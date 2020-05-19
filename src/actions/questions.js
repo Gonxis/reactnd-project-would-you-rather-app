@@ -8,11 +8,11 @@ export const ADD_ANSWER_TO_QUESTION = "ADD_ANSWER_TO_QUESTION"
 
 export const ADD_QUESTION = 'ADD_QUESTION'
 
-function addAnswerToQuestion({ authedUser, id, answer }) {
+function addAnswerToQuestion({ authedUser, qid, answer }) {
     return {
         type: ADD_ANSWER_TO_QUESTION,
         authedUser,
-        id,
+        qid,
         answer
     }
 }
@@ -34,19 +34,17 @@ export function receiveQuestions(questions) {
 export function handleSaveQuestionAnswer(question, answer) {
     return (dispatch, getState) => {
         const { authedUser } = getState()
-        const id = question.id
+        const qid = question.id
 
         dispatch(showLoading());
-        console.log("Value of Answer from handleSaveQuestionAnswer: ", answer)
-        console.log("Type of Answer from handleSaveQuestionAnswer: ", typeof(answer))
         return saveQuestionAnswer({
                 authedUser,
-                id,
+                qid,
                 answer
             })
             .then(() => {
-                dispatch(addAnswerToUser(authedUser, id, answer))
-                dispatch(addAnswerToQuestion(authedUser, id, answer))
+                dispatch(addAnswerToUser({ authedUser, qid, answer }))
+                dispatch(addAnswerToQuestion({ authedUser, qid, answer }))
             })
             .then(() => dispatch(hideLoading()))
     }
