@@ -6,6 +6,7 @@ import Login from "./Login";
 import Leaderboard from "./Leaderboard"
 import Poll from "./Poll";
 import NewQuestion from "./NewQuestion"
+import Page404 from "./Page404"
 
 const Navigation = (props) => {
 	const { isLoggedIn } = props;
@@ -24,6 +25,7 @@ const Navigation = (props) => {
                         path='/questions/:id'
                         render={(props) => <Poll {...props} />}
                     />
+                    <Route path="/page404" component={Page404} />
                 </Switch>
             </Fragment>
             }
