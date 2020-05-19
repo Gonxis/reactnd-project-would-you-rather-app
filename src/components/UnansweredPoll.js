@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { handleSaveQuestionAnswer } from '../actions/questions'
 import { formatQuestion } from '../utils/helpers'
+import { Redirect } from 'react-router-dom'
 
 import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
@@ -11,7 +12,8 @@ import Form from 'react-bootstrap/Form'
 class UnansweredPoll extends Component {
 
     state = {
-        option: ""
+        option: "",
+        toAnsweredQuestion: false
 	}
 
 	handleChoice = (event) => {
@@ -23,18 +25,34 @@ class UnansweredPoll extends Component {
 		const { option } = this.state
 
         event.preventDefault()
-		dispatch(handleSaveQuestionAnswer(question, option))
+        dispatch(handleSaveQuestionAnswer(question, option))
+        
+        this.setState(() => ({
+            option: "",
+            toAnsweredQuestion: question.yourVote ? false : true,
+        }))
 	}
 
     render () {
-        const { question } = this.props
-        const { name, avatar, options } = question
-        const { option } = this.state
+        const { id, question } = this.props
+        const { name, avatar, options, yourVote } = question
+        const { option, toAnsweredQuestion } = this.state
 
         const disabled = 
             option === "" ? 
             true :
             false
+
+        if (toAnsweredQuestion) {
+            return <Redirect to={{
+                pathname: `/questions/${id}`,
+                state: {
+                    id,
+                    yourVote
+                }
+                
+            }} />
+        }
 
         return (
             <div className="container">
