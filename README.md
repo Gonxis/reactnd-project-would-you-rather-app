@@ -8,6 +8,8 @@ Also this app allows users to impersonate/log in as existing users to answer exi
 
 It's built with React, Redux, React Router, and React Thunk
 
+[Live Demo](https://would-you-rather-app.now.sh/)
+
 ## Set up and installation of the project
 
 In order to get started with the project, you only need to execute the next commands in the location where you have this project in the terminal:
